@@ -1,0 +1,172 @@
+---
+title: >
+ Extracellular mucin detected by deep learning from histopathology images predicts consensus molecular subtypes in colorectal cancer
+author:
+  - name: Oxana (Sachenkova) Lundström
+    affiliation: 1
+    extra:
+      - "oxana.lundstrom@dbb.su.se"
+      - "&commat;merenlin"
+  - name: H-G Nguyen
+    affiliation: 2
+  - name: Maria Anisimova
+    affiliation: 3
+  - name: Inti Zlobec
+    affiliation: 2
+affiliation:
+  - Stockholm University
+  - Institute of Pathology, University of Bern
+  - Institute of Applied Simulations, ZHAW Wädenswil
+date: "`r Sys.Date()`"
+output:
+  betterposter::poster_better:
+    # Optional styling arguments
+    hero_background: "#A4D3ED"
+    accent_color: "#005c99"
+    hero_color: "#FFFFFF"
+    logo: "https://yt3.ggpht.com/ytc/AAUvwnjGteYx8k6MAssnCXuvUKVwHYKOlapDEioYv5lGrg=s88-c-k-c0x00ffffff-no-rj"
+    # See betterposter::qrcode_options() for help
+    qrcode:
+      text: "https://github.com/merenlin/mucin_poster"
+      size: "250"
+    mathjax: false
+    # Generic rmarkdown arguments
+    highlight: tango
+    self_contained: true
+references:
+  - id: bychkovetal2018
+    title: Deep learning based tissue analysis predicts outcome in colorectal cancer.
+    author:
+    - family: Bychkovetal
+      given: D.
+    container-title: Scientific Reports
+    volume: 8
+    URL: 'https://www.nature.com/articles/s41598-018-21758-3'
+    DOI: 10.1038/s41598-018-21758-3 
+    publisher:  Nature Publishing Group
+    page: no. 1
+    type: article-journal
+    issued:
+      year: 2018
+  - id: tcga2012
+    title: Comprehensive molecular characterization of human colon and rectal cancer
+    author:
+    - family: Cancer Genome Atlas 
+      given: N.
+    container-title: Nature 
+    URL: 'https://doi.org/10.1038/nature11252'
+    DOI: 10.1038/nature11252 
+    issue: 487
+    publisher: Nature Publishing Group
+    page: 330–337
+    type: article-journal
+    issued:
+      year: 2012
+  - id: cptac2020
+    title: Data from the Clinical Proteomic Tumor Analysis Consortium Colon Adenocarcinoma collection
+    author:
+    - family: National Cancer Institute Clinical Proteomic Tumor Analysis Consortium 
+      given: (CPTAC)
+    container-title: The Cancer Imaging Archive.
+    URL: 'https://doi.org/10.7937/TCIA.YZWQ-ZZ63'
+    DOI: 10.1038/nature11252 
+    issued:
+      year: 2020      
+
+---
+
+```{css echo=FALSE}
+/* Adjust space at top of #hero (center panel) */
+#hero {
+  padding-top: 5%;
+}
+```
+
+
+<div id="hero">
+<!--
+  Center Column of Poster
+
+  * The main text goes in <h1> (single #) header.
+  * You can add additional text if desired.
+-->
+
+
+# **Mucin**  in colon and rectal cancer leads to **poor outcome** for certain types of tumors. It can also help us predict tumor type and **classify patients** to improve treatment.
+
+![](https://raw.githubusercontent.com/merenlin/mucin_poster/main/img/main_figure.png)
+
+</div>
+
+
+
+<div id="left-bar">
+<!-- Text in the left bar, title and authors added automatically -->
+
+# Abstract
+
+Colorectal cancers are a heterogeneous group of tumors, from the histomorphological, clinical and molecular points-of-view. In terms of molecular changes, one particularly well-described genomic aberration is microsatellite instability (MSI), affecting approximately 15% of all cancers and is an important factor affecting treatment decisions in colorectal cancer. Attempts have been made to predict MSI cancers using only the histopathology image [@bychkovetal2018]. In fact, experienced pathologists can often identify MSI cases simply be glancing at the stained slide. Mucin is not exclusively found in MSI-high patients, and the prognosis associated with mucinous histology is controversial.
+
+# Methods
+
+In order to better understand the role of extracellular mucin in colorectal cancer, we created a deep learning classifier to quantify the extracellular mucin-to-tumor area ratio in **three independent cohorts** (Bern n=517, TCGA n=412 & CPTAC n=85) and investigate the genotype-phenotype correlation of mucin with CMS groups, MSI status and gene expression of mucin-producing genes.
+
+### Bern cohort
+A large retrospective cohort of 517 primary colorectal cancer patients diagnosed at the Institute of Pathology between 2002-2018 and treated at the Insel Hospital Bern (Switzerland)
+
+### TCGA
+The Cancer Genome Atlas (TCGA) data [@tcga2012] from public repositories at the National Institutes of Health (NIH; USA). 412 patients cases have been selected. 
+
+### CPTAC
+A public dataset The Clinical Proteomic Tumor Analysis Consortium (CPTAC) from the National Cancer Institute (NCI; USA) was also included in this study. The 373 H&E WSIs of 106 colon adenocarcinoma patients were downloaded from The Cancer Imaging Archive (TCIA)  [@cptac2020].
+
+### Weakly supervised tissues segmentation from prior information
+A novel precise tissue segmentation of histopathology images using **deep learning**, namely Group Affinity Weakly Supervised segmentation (GAWS) is proposed. It processes one histopathology image and some patches of prior tissue as input with three main steps. 
+ 
+![](https://raw.githubusercontent.com/merenlin/mucin_poster/main/img/method.png)
+
+
+</div>
+
+
+
+<div id="right-bar">
+<!-- Right bar -->
+### Evaluation of the method
+
+First, we tested the inter-observer agreement of extracellular mucin component, recorded as the percentage of total tumor area covered by extracellular mucin, between two **pathologists**. We next tested the unsupervised GAUS algorithm against the scores from both pathologists. The results were excellent [pathologist 1 ICC=0.915 (95%CI: 0.885-0.937) and pathologist 2 ICC=0.923 (95%CI: 0.896-0.943)].
+
+# Results
+
+
+## Mucinous histology and survival outcome
+In CMS1 patients, mucinous histology is clearly a favorable factor, whereas in stage II and CMS3 patients, patients experience a much more **unfavorable outcome**. This may help to add to the current discrepancies found in the literature with regard to the impact of this histological feature and outcome (REF).
+
+![](https://raw.githubusercontent.com/merenlin/mucin_poster/main/img/survival.png)
+
+
+
+## Mucin is independent of MSI 
+Another important conclusion from the study is that, although true “mucinous” cancers are clearly different morphologically, they are independent of microsatellite instability(MSI) status. On the one hand, mucinous histology is often a feature of MSI, and a likely consequence of genomic instability affecting mucin-producing genes. On the other, it occurs in non-MSI cases as well. Our work here based on only 2 features, namely MSI status and the presence of extracellular mucin, helps to **narrow down** identification of CMS groups. Nearly all “mucinous” tumors with MSS are CMS3 or CMS4. 
+
+![](https://raw.githubusercontent.com/merenlin/mucin_poster/main/img/msi.png)
+
+
+## Association of expression of mucin-associated genes and CMS groups
+
+In this study, we show that mucinous histology and moreover, the presence of extracellular mucin in colorectal cancer, can help **predict** the underlying **Consensus Molecular Subgroup(CMS)** group, independently of the MSI status. CMS2 cancers rarely show any mucin, a result validated by gene expression analysis of four mucin producing genes - MUC2, MUC4, MUC5AC and MUC5B. 
+
+![](https://raw.githubusercontent.com/merenlin/mucin_poster/main/img/gene_expression.png)
+
+# Conclusion
+
+Extracellular mucin is an indicator of a phenotype-genotype correlation and together with MSI status can **differentiate between CMS1 and CMS3 cancers**. Secondly, extracellular **mucin is a feature of poor outcome** in patients with stage II cancers and CMS3 tumors, despite the more indolent features associated with a mucin-producing phenotype and should be considered during clinical management. 
+
+
+
+</div>
+
+# References
+
+
+ 
