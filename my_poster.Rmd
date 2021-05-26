@@ -21,7 +21,7 @@ date: "`r Sys.Date()`"
 output:
   betterposter::poster_better:
     # Optional styling arguments
-    hero_background: "#A4D3ED"
+    hero_background: "#56B4E9"
     accent_color: "#005c99"
     hero_color: "#FFFFFF"
     logo: "https://yt3.ggpht.com/ytc/AAUvwnjGteYx8k6MAssnCXuvUKVwHYKOlapDEioYv5lGrg=s88-c-k-c0x00ffffff-no-rj"
@@ -124,20 +124,18 @@ A public dataset The Clinical Proteomic Tumor Analysis Consortium (CPTAC) from t
 A novel precise tissue segmentation of histopathology images using **deep learning**, namely Group Affinity Weakly Supervised segmentation (GAWS) is proposed. It processes one histopathology image and some patches of prior tissue as input with three main steps. 
  
 ![](https://raw.githubusercontent.com/merenlin/mucin_poster/main/img/method.png)
-
-
 </div>
 
 
 
 <div id="right-bar">
 <!-- Right bar -->
+
 ### Evaluation of the method
 
-First, we tested the inter-observer agreement of extracellular mucin component, recorded as the percentage of total tumor area covered by extracellular mucin, between two **pathologists**. We next tested the unsupervised GAUS algorithm against the scores from both pathologists. The results were excellent [pathologist 1 ICC=0.915 (95%CI: 0.885-0.937) and pathologist 2 ICC=0.923 (95%CI: 0.896-0.943)].
+First, we tested the inter-observer agreement of extracellular mucin component, recorded as the percentage of total tumor area covered by extracellular mucin, between two **pathologists**. The results were excellent [pathologist 1 ICC=0.915 (95%CI: 0.885-0.937) and pathologist 2 ICC=0.923 (95%CI: 0.896-0.943)].
 
 # Results
-
 
 ## Mucinous histology and survival outcome
 In CMS1 patients, mucinous histology is clearly a favorable factor, whereas in stage II and CMS3 patients, patients experience a much more **unfavorable outcome**. This may help to add to the current discrepancies found in the literature with regard to the impact of this histological feature and outcome (REF).
@@ -147,7 +145,7 @@ In CMS1 patients, mucinous histology is clearly a favorable factor, whereas in s
 
 
 ## Mucin is independent of MSI 
-Another important conclusion from the study is that, although true “mucinous” cancers are clearly different morphologically, they are independent of microsatellite instability(MSI) status. On the one hand, mucinous histology is often a feature of MSI, and a likely consequence of genomic instability affecting mucin-producing genes. On the other, it occurs in non-MSI cases as well. Our work here based on only 2 features, namely MSI status and the presence of extracellular mucin, helps to **narrow down** identification of CMS groups. Nearly all “mucinous” tumors with MSS are CMS3 or CMS4. 
+Mucinous histology is independent of microsatellite instability(MSI) status. On the one hand, mucin is often a feature of MSI, and a likely consequence of genomic instability affecting mucin-producing genes. On the other, it occurs in non-MSI cases as well. Our work here based on only 2 features, namely MSI status and the presence of extracellular mucin, helps to **narrow down** identification of CMS groups. Nearly all “mucinous” tumors with MSS are CMS3 or CMS4. 
 
 ![](https://raw.githubusercontent.com/merenlin/mucin_poster/main/img/msi.png)
 
